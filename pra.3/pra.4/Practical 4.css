@@ -1,0 +1,170 @@
+/* CityCare Hospital - refreshed medical blue theme */
+
+:root {
+    --primary: #176b87;
+    --primary-dark: #104e66;
+    --accent: #e0f2f1;
+    --text: #20323d;
+    --muted: #617581;
+    --border: #cbdce4;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 36px 16px;
+    color: var(--text);
+    background: linear-gradient(135deg, #e8f4f8, #d8e9f1);
+}
+
+.container {
+    width: 100%;
+    max-width: 620px;
+    margin: auto;
+    padding: 34px;
+    background: #ffffff;
+    border: 1px solid #d8e5eb;
+    border-radius: 18px;
+    box-shadow: 0 14px 38px rgba(24, 73, 94, 0.13);
+}
+
+h1 {
+    margin: 0 0 10px;
+    text-align: center;
+    color: var(--primary);
+    font-size: 30px;
+    letter-spacing: 0.3px;
+}
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group > label {
+    display: block;
+    margin-bottom: 8px;
+    color: #294653;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #fbfdfe;
+    color: var(--text);
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(23, 107, 135, 0.13);
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="file"] {
+    padding: 9px;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    color: var(--text);
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-group input,
+.checkbox-group input {
+    width: auto;
+    accent-color: var(--primary);
+}
+
+.error {
+    display: block;
+    margin-top: 5px;
+    color: #c0392b;
+    font-size: 13px;
+}
+
+.success-message {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #17604f;
+    text-align: center;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 13px rgba(23, 107, 135, 0.22);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 17px rgba(23, 107, 135, 0.25);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.strength {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 18px 10px;
+    }
+
+    .container {
+        padding: 23px 18px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityCare Hospital - New Patient Registration</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="Practical 4.css">
+
+    <style>
+        :root {
+            --primary: #176b87;
+            --primary-dark: #104e66;
+            --accent: #e0f2f1;
+            --text: #20323d;
+            --muted: #617581;
+            --surface: #ffffff;
+            --page: #eaf3f7;
+            --border: #cbdce4;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 36px 16px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background: linear-gradient(135deg, #e8f4f8, #d8e9f1);
+        }
+
+        .container {
+            width: min(100%, 620px);
+            margin: 0 auto;
+            padding: 34px;
+            background: var(--surface);
+            border: 1px solid #d8e5eb;
+            border-radius: 18px;
+            box-shadow: 0 14px 38px rgba(24, 73, 94, 0.13);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: var(--primary);
+            text-align: center;
+            font-size: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        h2 {
+            color: var(--muted) !important;
+            font-weight: 500;
+        }
+
+        .form-group { margin-bottom: 19px; }
+
+        .form-group > label {
+            display: block;
+            margin-bottom: 8px;
+            color: #294653;
+            font-weight: 600;
+        }
+
+        input:not([type="radio"]):not([type="checkbox"]),
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: #fbfdfe;
+            color: var(--text);
+            font: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        input[type="file"] { padding: 9px !important; }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(23, 107, 135, 0.13);
+        }
+
+        textarea { resize: vertical; }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .radio-group label, .checkbox-group label {
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            accent-color: var(--primary);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            margin-top: 5px;
+            padding: 14px 18px;
+            border: 0;
+            border-radius: 10px;
+            background: var(--primary);
+            color: white;
+            font: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 13px rgba(23, 107, 135, 0.22);
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 17px rgba(23, 107, 135, 0.25);
+        }
+
+        button[type="submit"]:active { transform: translateY(0); }
+
+        .error {
+            display: block;
+            margin-top: 5px;
+            color: #c0392b;
+            font-size: 13px;
+        }
+
+        .strength { margin-top: 6px; font-size: 13px; }
+        .success-message {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #17604f;
+            text-align: center;
+        }
+
+        @media (max-width: 520px) {
+            body { padding: 18px 10px; }
+            .container { padding: 23px 18px; }
+            h1 { font-size: 25px; }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>CityCare Hospital</h1>
+        <h2 style="text-align: center; color: #555; font-size: 20px; margin-top: -10px; margin-bottom: 25px;">New
+            Patient Registration</h2>
+
+        <form id="registrationForm">
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" placeholder="Enter your full name">
+                <span id="nameError" class="error"></span>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" placeholder="example@email.com">
+                <span id="emailError" class="error"></span>
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="form-group">
+                <label for="mobile">Mobile Number *</label>
+                <input type="tel" id="mobile" placeholder="Enter 10-digit mobile number">
+                <span id="mobileError" class="error"></span>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label for="dob">Date of Birth *</label>
+                <input type="date" id="dob">
+                <span id="dobError" class="error"></span>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label>Gender *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="Male"> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+                <span id="genderError" class="error"></span>
+            </div>
+
+            <!-- Blood Group -->
+            <div class="form-group">
+                <label for="bloodGroup">Blood Group *</label>
+                <select id="bloodGroup">
+                    <option value="" disabled selected>-- Select Blood Group --</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+                <span id="bloodError" class="error"></span>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address *</label>
+                <textarea id="address" placeholder="Enter your address" rows="3"></textarea>
+                <span id="addressError" class="error"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" placeholder="Enter password">
+                <div id="passwordStrength" class="strength"></div>
+                <span id="passwordError" class="error"></span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password *</label>
+                <input type="password" id="confirmPassword" placeholder="Re-enter password">
+                <span id="confirmPasswordError" class="error"></span>
+            </div>
+
+            <!-- Upload ID Proof -->
+            <div class="form-group">
+                <label for="document">Upload ID Proof</label>
+                <input type="file" id="document">
+                <span id="fileError" class="error"></span>
+            </div>
+
+            <!-- Terms & Conditions Confirmation -->
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms">
+                    <label for="terms" style="margin-bottom: 0; font-weight: normal;">I confirm that the information
+                        provided is correct.</label>
+                </div>
+                <span id="termsError" class="error"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Register Patient</button>
+
+            <!-- Success Message Display -->
+            <div id="successMessage" class="success-message"></div>
+        </form>
+    </div>
+
+    <!-- Link to your JS file -->
+    <script src="Practical 4.js"></script>
+</body>
+
+</html>
