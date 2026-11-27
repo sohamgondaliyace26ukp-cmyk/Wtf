@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>CityCare Hospital</h1>
+    <h2>Patient Registration Form</h2>
+
+    <form id="patientForm">
+
+        <label>Patient Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name" required maxlength="40">
+        <span id="nameError" class="error"></span>
+
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter email" required>
+        <span id="emailError" class="error"></span>
+
+        <label>Mobile Number:</label>
+        <input type="tel" id="mobile" placeholder="10 digit mobile number" required maxlength="10">
+        <span id="mobileError" class="error"></span>
+
+        <label>Password:</label>
+        <input type="password" id="password" placeholder="Enter password" required minlength="8">
+        <span id="passwordError" class="error"></span>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+        <span id="confirmError" class="error"></span>
+
+        <label>Date of Birth:</label>
+        <input type="date" id="dob" required>
+
+        <label>Gender:</label>
+        <div class="options">
+            <input type="radio" name="gender" value="Male" required> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </div>
+
+        <label>Blood Group:</label>
+        <select id="blood" required>
+            <option value="">Select Blood Group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+        </select>
+
+        <label>Address:</label>
+        <textarea id="address" placeholder="Enter your address" required></textarea>
+
+        <label>Upload Medical Documents:</label>
+        <input type="file" id="document" accept=".pdf,.jpg,.jpeg,.png">
+
+        <div class="options">
+            <input type="checkbox" id="terms" required>
+            I agree to the Terms and Conditions
+        </div>
+
+        <button type="submit">Register</button>
+        <button type="reset" class="reset">Reset</button>
+
+        <p id="success"></p>
+
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
